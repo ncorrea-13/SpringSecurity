@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Noticias</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <form action="/noticias/registro" method="post">
+        <!-- errores -->
+        <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+            <div class="card-body">
+                <h5 class="card-title">error</h5>
+                <p class="card-text" th:text="${error}"></p>
+            </div>
+        </div>
+        <!-- cargado con éxito -->
+        <div th:if="${exito != null}" class="card text-white bg-success mb-3 mensajeExito">
+            <div class="card-body">
+                <h5 class="card-title">Exito!!</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Título de la noticia</label>
+            <input type="text" name="nombre" class="form-group" id="exampleFormControlInput1"
+                placeholder="Nombre de la noticia">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Texto de su noticia</label>
+            <textarea name="cuerpo" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <div class="form-group my-3">
+            <select name="nombreAutor">
+                <option>Seleccionar Autor</option>
+                <option th:each="autor : ${autores}"
+                th:value="${autor.id}"
+                th:text="${autor.nombre}"/>
+            </select>
+        </div>
+
+
+    </form>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
