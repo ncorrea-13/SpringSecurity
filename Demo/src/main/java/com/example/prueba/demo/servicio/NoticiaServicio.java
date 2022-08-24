@@ -97,15 +97,15 @@ public class NoticiaServicio {
 
     public void validarExcepciones(String titulo, String texto, String idAutor) throws ExcepcionesPropias {
 
-        if (titulo.isEmpty() || titulo == null) {
+        if (titulo.isEmpty()) {
             throw new ExcepcionesPropias("El título debe ser completado");
         }
 
-        if (texto.isEmpty() || texto == null) {
+        if (texto.isEmpty()) {
             throw new ExcepcionesPropias("La noticia necesita tener texto");
         }
 
-        if (idAutor.isEmpty() || idAutor == null) {
+        if (idAutor.isEmpty()) {
             throw new ExcepcionesPropias("El id del autor debe ser completado");
         }
     }

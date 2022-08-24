@@ -44,19 +44,19 @@ public class UsuarioServicio implements UserDetailsService{
     }
 
     public void validarExcepciones(String nombre, String email, String password, String password2) throws ExcepcionesPropias {
-        if (nombre.isEmpty() || nombre == null) {
+        if (nombre.isEmpty()) {
             throw new ExcepcionesPropias("El título debe ser completado");
         }
 
-        if (email.isEmpty() || email == null) {
+        if (email.isEmpty()) {
             throw new ExcepcionesPropias("El email debe ser completado");
         }
 
-        if (password.isEmpty() || password == null || password.length() <= 5) {
+        if (password.isEmpty()|| password.length() <= 5) {
             throw new ExcepcionesPropias("Debe dejar una contraseña y debe poseer más de 5 dígitos");
         }
 
-        if (password2.isEmpty() || password2 == null) {
+        if (password2.isEmpty()) {
             throw new ExcepcionesPropias("Debe repetir su contraseña");
         }
 

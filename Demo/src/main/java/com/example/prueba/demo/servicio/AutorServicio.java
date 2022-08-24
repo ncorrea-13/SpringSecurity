@@ -60,7 +60,7 @@ public class AutorServicio {
     }
     
     private void validarExcepciones(String titulo) throws ExcepcionesPropias{
-        if (titulo.isEmpty() || titulo == null) {
+        if (titulo.isEmpty()) {
             throw new ExcepcionesPropias("El título debe ser completado");
         }
     }
