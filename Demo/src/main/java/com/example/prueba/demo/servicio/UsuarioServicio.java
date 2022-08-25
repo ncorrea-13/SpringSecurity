@@ -52,8 +52,8 @@ public class UsuarioServicio implements UserDetailsService{
             throw new ExcepcionesPropias("El email debe ser completado");
         }
 
-        if (password.isEmpty()|| password.length() <= 5) {
-            throw new ExcepcionesPropias("Debe dejar una contraseña y debe poseer más de 5 dígitos");
+        if (password.isEmpty()|| password.length() <= 6) {
+            throw new ExcepcionesPropias("Debe dejar una contraseña y debe poseer más de 6 dígitos");
         }
 
         if (password2.isEmpty()) {
@@ -74,9 +74,9 @@ public class UsuarioServicio implements UserDetailsService{
 
             List<GrantedAuthority> permisos = new ArrayList();
 
-            GrantedAuthority p = new SimpleGrantedAuthority("ROLE " + usuario.getRol().toString()); //ROLLE_USER
+            GrantedAuthority prueba = new SimpleGrantedAuthority("ROLE_" + usuario.getRol().toString()); //ROLLE_USER
 
-            permisos.add(p);
+            permisos.add(prueba);
 
             return new User(usuario.getEmail(), usuario.getPassword(), permisos);
         } else {

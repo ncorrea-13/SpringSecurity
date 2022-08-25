@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class PortalControlador { //localhost:8080/
 
+    private String index = "index.html";
     @Autowired
     private NoticiaServicio noticiaServicio;
 
@@ -28,7 +29,7 @@ public class PortalControlador { //localhost:8080/
         List<Noticia> noticias = noticiaServicio.listarNoticias();
 
         modelo.addAttribute("noticias", noticias);
-        return "index.html";
+        return index;
     }
 
     @GetMapping("/registrar")
@@ -43,7 +44,7 @@ public class PortalControlador { //localhost:8080/
 
             modelo.put("exito", "Usuario registrado correctamente");
             
-            return "index.html";
+            return index;
         } catch (ExcepcionesPropias ex) {
             modelo.put("error", ex.getMessage());
             modelo.put("nombre", nombre);
@@ -62,8 +63,8 @@ public class PortalControlador { //localhost:8080/
         return "login.html";
     }
     
-    @GetMapping("/inicio")
+    @GetMapping("/logueo")
     public String inicio(){
-        return "index.html";
+        return "login.html";
     }
 }
