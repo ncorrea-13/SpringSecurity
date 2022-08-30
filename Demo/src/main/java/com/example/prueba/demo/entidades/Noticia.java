@@ -10,8 +10,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
+import lombok.Data;
 
 @Entity
+@Data //autogenera los getters, setters, toString y los constructores
 public class Noticia implements Serializable {
 
     @Id
@@ -36,70 +38,6 @@ public class Noticia implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date modificacion;
 
-    public String getId() {
-        return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public Date getAlta() {
-        return alta;
-    }
-
-    public Autor getAutor() {
-        return autor;
-    }
-
-    public Date getModificacion() {
-        return modificacion;
-    }
-
-    public String getTexto() {
-        return texto;
-    }
-
-    public String getTextoAcortado() {
-        return textoAcortado;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-
-    public void setTextoAcortado(String textoAcortado) {
-        this.textoAcortado = textoAcortado;
-    }
-
-    public void setModificacion(Date modificacion) {
-        this.modificacion = modificacion;
-    }
-
-    public void setAutor(Autor autor) {
-        this.autor = autor;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public void setAlta(Date alta) {
-        this.alta = alta;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -118,11 +56,6 @@ public class Noticia implements Serializable {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.prueba.nueva.entidades.Libro[ id=" + id + " ]";
     }
 
 }

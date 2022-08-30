@@ -8,8 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
+import lombok.Data;
 
 @Entity
+@Data //autogenera los getters, setters, toString y los constructores
 public class Autor implements Serializable {
 
     @Id
@@ -23,39 +25,6 @@ public class Autor implements Serializable {
     
     @Temporal(TemporalType.DATE)
     private Date modificacion;
-
-    public String getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public Date getAlta() {
-        return alta;
-    }
-
-    public Date getModificacion() {
-        return modificacion;
-    }
-
-    public void setModificacion(Date modificacion) {
-        this.modificacion = modificacion;
-    }
-
-    
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setAlta(Date alta) {
-        this.alta = alta;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     @Override
     public int hashCode() {
@@ -75,11 +44,6 @@ public class Autor implements Serializable {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.prueba.nueva.entidades.Autor[ id=" + id + " ]";
     }
 
 }

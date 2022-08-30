@@ -26,7 +26,7 @@ public class UsuarioServicio implements UserDetailsService{
     private UsuarioRepositorio userRep;
 
     @Transactional
-    public void crearUsuario(String nombre, String email, String password, String password2) throws ExcepcionesPropias {
+    public void crearUsuario(String nombre, String email, String password, String password2) throws ExcepcionesPropias  {
 
         validarExcepciones(nombre, email, password, password2);
 

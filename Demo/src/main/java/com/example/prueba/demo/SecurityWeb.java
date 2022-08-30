@@ -16,17 +16,19 @@ public class SecurityWeb extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/css/*", "/js/*", "/images/*", "/**")
-                .permitAll()
-                .and().formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/logincheck")
-                .usernameParameter("email")
-                .passwordParameter("password")
-                .defaultSuccessUrl("/inicio")
-                .permitAll()
-                .and().logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
                 .permitAll();
+
+
+                // .and().formLogin()
+                // .loginPage("/login")
+                // .loginProcessingUrl("/logincheck")
+                // .usernameParameter("email")
+                // .passwordParameter("password")
+                // .defaultSuccessUrl("/inicio")
+                // .permitAll()
+                // .and().logout()
+                // .logoutUrl("/logout")
+                // .logoutSuccessUrl("/")
+                // .permitAll();
     }
 }

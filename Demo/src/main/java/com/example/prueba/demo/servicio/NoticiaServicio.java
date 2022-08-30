@@ -29,7 +29,7 @@ public class NoticiaServicio {
     public void crearNoticia(String titulo, String texto, String idAutor, MultipartFile imagen) throws ExcepcionesPropias, IOException {
 
         validarExcepciones(titulo, texto, idAutor);
-
+        
         Autor autor = autorRep.findById(idAutor).get();
         Noticia noticia = new Noticia();
 
